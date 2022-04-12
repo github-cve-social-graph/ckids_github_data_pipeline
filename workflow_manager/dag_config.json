@@ -1,0 +1,4 @@
+{
+        "mongo_url": "mongodb+srv://ckids:ckids@cluster0.4lols.mongodb.net/myFirstDatabase?retryWrites=true&w=majority",
+        "dag_collection": "dag_coll"
+}
