@@ -49,15 +49,14 @@ def linkUserToRepo(commitJson, relationship):
     repo.save()
   user.addRelationship(repo, relationship)
 
-if __name__ == "__main__":
-  driver = getConnectionDriver("neo4j","kaushik","bolt://localhost:7687/")
+def create_edges_vertexes():
+  driver = getConnectionDriver("neo4j", "kaushik", "bolt://localhost:7687/")
 
   userData = open("./sample_data/user.json")
   orgData = open("./sample_data/organization.json")
-  
+
   userJson = json.load(userData)
   orgJson = json.load(orgData)
-
 
   commitData = open("./sample_data/commit.json")
   commitJson = json.load(commitData)
@@ -73,3 +72,8 @@ if __name__ == "__main__":
   orgData.close()
   commitData.close()
   issueData.close()
+
+if __name__ == "__main__":
+  wm_create_vertex_edges = WorkflowTracker("./components/neo4j_ingestor/wm_config/create_vertex_edge.json",
+                             create_edges_vertexes)
+  wm_create_vertex_edges.trigger_job()

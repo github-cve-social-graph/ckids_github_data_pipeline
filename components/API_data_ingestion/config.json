@@ -5,7 +5,7 @@
     "DATABASE": "CKIDS",
     "REST_BASE_API": "https://api.github.com/",
     "GRAPHQL_API": "https://api.github.com/graphql",
-    "FROMYEAR": 2022,
+    "FROMYEAR": 2021,
     "TOYEAR": 2022,
     "FROMMONTH": 2,
     "TOMONTH": 3,

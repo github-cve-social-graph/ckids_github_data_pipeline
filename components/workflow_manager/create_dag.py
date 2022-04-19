@@ -66,6 +66,6 @@ def test_dag_creation():
 
 def create_ingestion_dag_if_not_exists(config_path):
     d = DAG(config_path, "Ingestion_dag")
-    d.next("issues_ingestion_job").parallel("commits_ingestion_job").next("user_extraction_job").next("create_ingest_vertexes_edges").create_dag()
+    d.next("issues_ingestion_job").parallel("commits_ingestion_job").next("user_extraction_job").next("create_ingest_vertexes_edges_job").create_dag()
     d.persist_dag()
     print(d.dag)
