@@ -53,8 +53,15 @@ wm_issues = WorkflowTracker("./components/API_data_ingestion/wm_config/issues_co
 # wm_commits = WorkflowTracker("./components/API_data_ingestion/wm_config/commits_config.json", ingest_commits)
 wm_users = WorkflowTracker("./components/API_data_ingestion/wm_config/user_extraction_config.json",
                            get_users_from_issues_commits)
+
+
+print("Starting Issues Job Deamon\n")
 t1 = threading.Thread(target=wm_issues.trigger_job)
 t1.start()
+
+#print("Starting  Commit Job Deamon\n")
 # t2 = threading.Thread(target=wm_commits.trigger_job)
 # t2.start()
+
+print("Starting User Extraction Job Deamon\n")
 wm_users.trigger_job()

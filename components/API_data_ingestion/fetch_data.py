@@ -53,7 +53,8 @@ class fetch_git_data:
         _query = '''query { organization(login:"'''+ org +'''") { id location name email databaseId description repositories(first: 1) { pageInfo { endCursor hasNextPage } edges { node { id name createdAt languages(first:3) {edges { node { name } } } url labels(first:5){ edges{ node{ name } } } } } } } }'''
         response = requests.post(_url, json={'query': _query}, headers= self.header)
         r = response.json()
-        
+
+        print("response: " + str(r))
         response_arr.append(r)
         hasNextPage= r["data"]["organization"]["repositories"]["pageInfo"]["hasNextPage"]
         while hasNextPage:

@@ -83,6 +83,7 @@ class WorkflowTracker:
 
     def trigger_job(self):
         while 1:
+            time.sleep(8)
             initialized_job = self.get_initialized_job()
             if len(initialized_job) == 0:
                 continue
@@ -90,7 +91,6 @@ class WorkflowTracker:
             next_job_payload = self.job()
             self.set_completed_status()
             self.set_next_flow_initialized_status(next_job_payload)
-            time.sleep(8)
 
 
 def job_init_function():
