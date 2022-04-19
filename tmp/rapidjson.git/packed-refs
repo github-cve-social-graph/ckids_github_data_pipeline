@@ -1,0 +1,17 @@
+# pack-refs with: peeled fully-peeled 
+4842934001dcc3aceb8b358faececade768885c5 refs/heads/Issue1604_ASCIIValidation
+f2a28ee4720f34efae516c04eccb97e6820644b2 refs/heads/archiver_example
+9dd4764ceabd5363530d59506bcbaf30740c7d4b refs/heads/gh-pages
+fcd2e1f60cecc00d414821987b2d3d02dbd593df refs/heads/issue1017_allOfHandler
+966987625c4e8f9bc5adce73b9557be128c27be8 refs/heads/issue1153_rawvalueencoding
+18e66fe069d803147db7e2f8a718342c82076777 refs/heads/issue1858_travis
+98ddfacdf1f4fc8281190999c801d8872c08a06e refs/heads/issue341_float
+fcb23c2dbf561ec0798529be4f66394d3e4996d8 refs/heads/master
+f191cd9dfcf58efd10439e65c7c14d5fbaa5ff38 refs/heads/regex
+d48290e387932ba016fb1d0117ac4b71edda45ae refs/heads/travis
+2fb78f9cee01996f020d5af7592b37c5a0693b31 refs/heads/version1.1.0
+79e81fe36f9f2423997627437f0c7566dd5ffa33 refs/tags/v1.0-beta
+7f43373a1234f5f773bc6d43a5e3d1e4cddcf9f6 refs/tags/v1.0.0
+d2269f65f60d12b96228918619d8df606fc61de2 refs/tags/v1.0.1
+3d5848a7cd3367c5cb451c6493165b7745948308 refs/tags/v1.0.2
+f54b0e47a08782a6131cc3d60f94d038fa6e0a51 refs/tags/v1.1.0
