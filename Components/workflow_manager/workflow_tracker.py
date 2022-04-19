@@ -90,8 +90,7 @@ class WorkflowTracker:
             next_job_payload = self.job()
             self.set_completed_status()
             self.set_next_flow_initialized_status(next_job_payload)
-            time.sleep(5)
-            break
+            time.sleep(8)
 
 
 def job_init_function():

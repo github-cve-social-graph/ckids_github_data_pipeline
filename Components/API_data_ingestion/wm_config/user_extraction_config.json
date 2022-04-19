@@ -1,0 +1,8 @@
+{
+        "mongo_url": "mongodb+srv://ckids:ckids@cluster0.4lols.mongodb.net/myFirstDatabase?retryWrites=true&w=majority",
+        "workflow_collection": "workflow_coll",
+        "dag_collection": "dag_coll",
+        "version": "first_run",
+        "dag_name": "Ingestion_dag",
+        "job_name": "user_extraction_job"
+}

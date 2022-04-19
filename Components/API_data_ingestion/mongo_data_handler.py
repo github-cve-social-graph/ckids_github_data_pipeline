@@ -9,7 +9,7 @@ class MongoDataHandler:
         f.close()
         self.database = data["DATABASE"]
         self.client = MongoClient(data["MONGO_CON_STRING"])
-    
+
     def save_response(self, data: dict, collection) -> bool:
         db = self.client.get_database(self.database)
         collections = db[collection]

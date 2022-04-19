@@ -1,0 +1,14 @@
+{
+    "GITHUB_ACCESS_TOKEN" : "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",
+    "COMPANY" : "Tencent",
+    "MONGO_CON_STRING": "mongodb+srv://ckids:ckids@cluster0.4lols.mongodb.net/myFirstDatabase?retryWrites=true&w=majority",
+    "DATABASE": "CKIDS",
+    "REST_BASE_API": "https://api.github.com/",
+    "GRAPHQL_API": "https://api.github.com/graphql",
+    "FROMYEAR": 2020,
+    "TOYEAR": 2022,
+    "FROMMONTH": 2,
+    "TOMONTH": 3,
+    "FROMDAY": 12,
+    "TODAY": 14
+}

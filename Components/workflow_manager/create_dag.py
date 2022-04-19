@@ -42,6 +42,11 @@ class DAG:
             {"dag": self.dag_name, "type": "linear", "current_job_name": job_name, "next_job_name": next_job_name})
 
     def persist_dag(self):
+        check_if_dag_exists = {"dag":self.dag_name}
+        dag_exists = self.dag_collection.find(check_if_dag_exists)
+        if len(list(dag_exists)) >= 1:
+            return
+
         last_ele = "flow_start"
         for i in range(len(self.dag)):
             if len(self.dag[i]) > 1:
@@ -53,12 +58,14 @@ class DAG:
                 self.insert_next_job_entry(last_ele, self.dag[i][0])
                 last_ele = self.dag[i][0]
 
-
 def test_dag_creation():
-    d = DAG("dag_config.json", "example2")
+    d = DAG("dag_config.json", "example3")
     d.next("job_1").next("job_2").parallel("job_3").next("job_4").create_dag()
     d.persist_dag()
     print(d.dag)
 
-
-test_dag_creation()
+def create_ingestion_dag_if_not_exists(config_path):
+    d = DAG(config_path, "Ingestion_dag")
+    d.next("issues_ingestion_job").parallel("commits_ingestion_job").next("user_extraction_job").next("create_ingest_vertexes_edges").create_dag()
+    d.persist_dag()
+    print(d.dag)

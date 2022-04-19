@@ -32,9 +32,9 @@ class fetch_git_data:
 
     def get_commit_data(self, repo_url, repo_name):            
         repo_url = repo_url
-        repo_dir = '/tmp/'+repo_name+'.git'
+        repo_dir = './tmp/'+repo_name+'.git'
         reposiotry = Git (uri=repo_url, gitpath=repo_dir)
-        count =0
+        count = 0
         for commit in reposiotry.fetch():
             count+=1
             re = repo.MongoDataHandler().save_response(commit, "commit")
