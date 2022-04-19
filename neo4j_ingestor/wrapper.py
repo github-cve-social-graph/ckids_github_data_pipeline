@@ -39,6 +39,16 @@ def extractRepoFromOrgAndSave(orgJson):
   
   return createRepository(orgJson["data"]["organization"]["name"], repo)
 
+def linkUserToRepo(commitJson, relationship):
+  user = User(driver,commitJson["data"]["user"]["login"], None)
+  if not user.exists():
+    user.save()
+  repoName = commitJson["origin"].split("/")[-1]
+  repo = Repository(driver,repoName,None)
+  if not repo.exists():
+    repo.save()
+  user.addRelationship(repo, relationship)
+
 if __name__ == "__main__":
   driver = getConnectionDriver("neo4j","kaushik","bolt://localhost:7687/")
 
@@ -48,8 +58,18 @@ if __name__ == "__main__":
   userJson = json.load(userData)
   orgJson = json.load(orgData)
 
-  user = createUserFromJson(userJson)
-  repos = extractRepoFromOrgAndSave(orgJson)
 
+  commitData = open("./sample_data/commit.json")
+  commitJson = json.load(commitData)
+
+  issueData = open("./sample_data/issue.json")
+  issueJson = json.load(issueData)
+
+  createUserFromJson(userJson)
+  extractRepoFromOrgAndSave(orgJson)
+  linkUserToRepo(commitJson, "COMMITS_TO")
+  linkUserToRepo(issueJson, "RAISES_ISSUE")
   userData.close()
   orgData.close()
+  commitData.close()
+  issueData.close()
