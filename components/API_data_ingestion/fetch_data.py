@@ -3,13 +3,13 @@ from perceval.backends.core.git import Git
 from perceval.backends.core.github import GitHub as PercevalGithub
 import json
 from datetime import datetime, timezone
-import mongo_data_handler as repo
+import components.API_data_ingestion.mongo_data_handler as repo
 import requests
 
 
 class fetch_git_data:
     def __init__(self) -> None:
-        f = open('./config.json')
+        f = open('./components/API_data_ingestion/config.json')
         data = json.load(f)
         f.close()
         self.token = data["GITHUB_ACCESS_TOKEN"]

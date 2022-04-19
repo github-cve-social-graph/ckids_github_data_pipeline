@@ -101,22 +101,22 @@ def job_init_function():
     print("function running")
 
 
-def test_workflow_manager():
-    workflow_manager_1 = WorkflowTracker("./config_1.json", job_init_function)
-    workflow_manager_2 = WorkflowTracker("./config_2.json", job_init_function)
-    workflow_manager_3 = WorkflowTracker("./config_3.json", job_init_function)
-    workflow_manager_4 = WorkflowTracker("./config_4.json", job_init_function)
-
-    t1 = threading.Thread(target=workflow_manager_1.trigger_job)
-    t1.start()
-
-    t2 = threading.Thread(target=workflow_manager_2.trigger_job)
-    t2.start()
-
-    t3 = threading.Thread(target=workflow_manager_3.trigger_job)
-    t3.start()
-
-    workflow_manager_4.trigger_job()
-
-
-test_workflow_manager()
+# def test_workflow_manager():
+#     workflow_manager_1 = WorkflowTracker("./config_1.json", job_init_function)
+#     workflow_manager_2 = WorkflowTracker("./config_2.json", job_init_function)
+#     workflow_manager_3 = WorkflowTracker("./config_3.json", job_init_function)
+#     workflow_manager_4 = WorkflowTracker("./config_4.json", job_init_function)
+#
+#     t1 = threading.Thread(target=workflow_manager_1.trigger_job)
+#     t1.start()
+#
+#     t2 = threading.Thread(target=workflow_manager_2.trigger_job)
+#     t2.start()
+#
+#     t3 = threading.Thread(target=workflow_manager_3.trigger_job)
+#     t3.start()
+#
+#     workflow_manager_4.trigger_job()
+#
+#
+# test_workflow_manager()
