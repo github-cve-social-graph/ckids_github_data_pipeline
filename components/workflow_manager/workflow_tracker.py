@@ -8,6 +8,7 @@ import threading
 class WorkflowTracker:
     def __init__(self, config_path, job_func):
         self.config = self.load_config(config_path)
+        self.initialized = False
         self.mongo_url = self.config["mongo_url"]
         self.client = MongoClient(self.mongo_url)
         self.db = self.client.CKIDS
@@ -57,11 +58,12 @@ class WorkflowTracker:
         if len(result) == 0:
             init_query = {"dag": self.dag_name, "current_job_name": "flow_start", "next_job_name": self.job_name}
             init_result = list(self.dag_collection.find(init_query))
-            if len(init_result) == 1:
+            if len(init_result) == 1 and self.initialized == False:
                 self.workflow_collection.insert_one(
                     {"version": self.current_version, "job_name": self.job_name, "status": "INITIALISED",
                      "payload": ""})
-
+                self.initialize_parallel_jobs()
+                self.initialized = True
                 return list({"version": self.current_version, "job_name": self.job_name, "status": "INITIALISED",
                              "payload": ""})
             else:
@@ -83,7 +85,7 @@ class WorkflowTracker:
 
     def trigger_job(self):
         while 1:
-            time.sleep(8)
+            time.sleep(5)
             initialized_job = self.get_initialized_job()
             if len(initialized_job) == 0:
                 continue

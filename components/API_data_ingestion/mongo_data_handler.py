@@ -1,6 +1,6 @@
 import json
 from pymongo import MongoClient
-import components.API_data_ingestion.fetch_data
+import components.API_data_ingestion.fetch_data as fetch_data
 
 class MongoDataHandler:
     def __init__(self) -> None:

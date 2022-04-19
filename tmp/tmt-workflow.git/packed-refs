@@ -1,0 +1,12 @@
+# pack-refs with: peeled fully-peeled 
+e7d9f17643567e51edf703b1a158708686e9a975 refs/heads/dependabot/npm_and_yarn/lodash.merge-4.6.2
+a0fc2b4fd963f8e51bde07463bcb4b4197b7df63 refs/heads/dependabot/npm_and_yarn/mixin-deep-1.3.2
+f11e452d0bb969c3211d9ae627cda9b63e3ed7a5 refs/heads/gh-pages
+e24fd92c954b8570b18b29ae7829254f0d86db7e refs/heads/master
+e789988c23943d16a7df5e2856da3e4c02379460 refs/heads/old-master
+b997849caeb96a3389ceb55cc086fcc07b431e80 refs/tags/1.0.0
+429c74f33efd9fbdb6aa52e2849b5c204673e28c refs/tags/1.5.4
+5bcb3a1316c927027fcdee874563d62c317006de refs/tags/1.5.6
+e804bbf54f9566f24c35af1657d7c83e898b68c2 refs/tags/1.5.8
+762b88f9dc7a02356ddf5a18309aa522398726c9 refs/tags/1.6.0
+8a49ef88881109c244da88aaa209969ba4e31877 refs/tags/1.6.8

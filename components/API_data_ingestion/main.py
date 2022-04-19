@@ -45,21 +45,21 @@ def ingest_commits():
 def get_users_from_issues_commits():
     count = mongo_data_handler.MongoDataHandler().extract_user_data_from_issues()
     count1 = mongo_data_handler.MongoDataHandler().extract_user_data_from_commits()
-    print('number of users extracted from commits' + count1)
-    print('number of users extracted from issues' + count)
+    print('number of users extracted from commits' + str(count1))
+    print('number of users extracted from issues' + str(count))
 
 
 wm_issues = WorkflowTracker("./components/API_data_ingestion/wm_config/issues_config.json", ingest_issues)
-# wm_commits = WorkflowTracker("./components/API_data_ingestion/wm_config/commits_config.json", ingest_commits)
+wm_commits = WorkflowTracker("./components/API_data_ingestion/wm_config/commits_config.json", ingest_commits)
 wm_users = WorkflowTracker("./components/API_data_ingestion/wm_config/user_extraction_config.json",
                            get_users_from_issues_commits)
 
-
-print("Starting Issues Job Deamon\n")
-t1 = threading.Thread(target=wm_issues.trigger_job)
-t1.start()
-
-#print("Starting  Commit Job Deamon\n")
+#
+# print("Starting Issues Job Deamon\n")
+# t1 = threading.Thread(target=wm_issues.trigger_job)
+# t1.start()
+#
+# print("Starting  Commit Job Deamon\n")
 # t2 = threading.Thread(target=wm_commits.trigger_job)
 # t2.start()
 
