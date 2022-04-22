@@ -4,7 +4,7 @@ import subprocess
 import threading
 
 create_ingestion_dag_if_not_exists("./components/API_data_ingestion/wm_config/issues_config.json")
-
+#
 t = threading.Thread(target=subprocess.call, args=(["python3.9", "-m", "components.API_data_ingestion.main"],))
 t.start()
 subprocess.call(["python3.9", "-m", "components.neo4j_ingestor.wrapper"])

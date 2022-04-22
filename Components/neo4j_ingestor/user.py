@@ -1,4 +1,4 @@
-from model import Model
+from components.neo4j_ingestor.model import Model
 
 class User(Model):
 

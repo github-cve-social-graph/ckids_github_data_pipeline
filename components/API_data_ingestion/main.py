@@ -49,8 +49,8 @@ def get_users_from_issues_commits():
     print('number of users extracted from issues' + str(count))
 
 
-wm_issues = WorkflowTracker("./components/API_data_ingestion/wm_config/issues_config.json", ingest_issues)
-wm_commits = WorkflowTracker("./components/API_data_ingestion/wm_config/commits_config.json", ingest_commits)
+# wm_issues = WorkflowTracker("./components/API_data_ingestion/wm_config/issues_config.json", ingest_issues)
+# wm_commits = WorkflowTracker("./components/API_data_ingestion/wm_config/commits_config.json", ingest_commits)
 wm_users = WorkflowTracker("./components/API_data_ingestion/wm_config/user_extraction_config.json",
                            get_users_from_issues_commits)
 
