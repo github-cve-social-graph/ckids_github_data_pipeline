@@ -3,6 +3,6 @@
         "workflow_collection": "workflow_coll",
         "dag_collection": "dag_coll",
         "version": "first_run",
-        "dag_name": "Ingestion_dag",
+        "dag_name": "Ingestion_last_issues__flow_dag",
         "job_name": "create_ingest_vertexes_edges_job"
 }

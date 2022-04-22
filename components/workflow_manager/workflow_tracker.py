@@ -83,6 +83,11 @@ class WorkflowTracker:
                 {"version": self.current_version, "job_name": parallel_job_result[0]["parallel_job_name"],
                  "status": "INITIALISED", "payload": self.get_current_payload()})
 
+    def print_iteration(self):
+        print("\n\n\n\n\n\n\n\n")
+        print("WF iteration : " + self.job_name)
+        print("\n\n\n\n\n\n\n\n")
+
     def trigger_job(self):
         while 1:
             time.sleep(5)
@@ -93,6 +98,7 @@ class WorkflowTracker:
             next_job_payload = self.job()
             self.set_completed_status()
             self.set_next_flow_initialized_status(next_job_payload)
+            self.print_iteration()
 
 
 def job_init_function():
