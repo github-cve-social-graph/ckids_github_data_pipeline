@@ -68,12 +68,12 @@ def create_edges_vertexes():
       continue
     userJson = json.dumps(i, default=str)
     createUserFromJson(i)
-  #
-  # for i in list(db["Organization"].find({})):
-  #   if i == None:
-  #     continue
-  #   orgJson = json.dumps(i, default=str)
-  #   extractRepoFromOrgAndSave(i)
+  
+  for i in list(db["Organization"].find({})):
+    if i == None:
+      continue
+    orgJson = json.dumps(i, default=str)
+    extractRepoFromOrgAndSave(i)
 
 
   print("issue")
@@ -84,32 +84,15 @@ def create_edges_vertexes():
       continue
     issueJson = json.dumps(i, default=str)
     linkUserToRepo(i, "RAISES_ISSUE")
-  #
-  # print("commit")
-  # for i in list(db["commit"].find({})):
-  #   print(i)
-  #   print("\n")
-  #   if i == None:
-  #     continue
-  #   commitJson = json.dumps(i, default=str)
-  #   linkUserToRepo(i, "COMMITS_TO")
-
-  # userData = open("./sample_data/user.json")
-  # orgData = open("./sample_data/organization.json")
-  #
-  # userJson = json.load(userData)
-  # orgJson = json.load(orgData)
-
-  # commitData = open("./sample_data/commit.json")
-  # commitJson = json.load(commitData)
-
-  # issueData = open("./sample_data/issue.json")
-  # issueJson = json.load(issueData)
-
-  # userData.close()
-  # orgData.close()
-  # commitData.close()
-  # issueData.close()
+  
+  print("commit")
+  for i in list(db["commit"].find({})):
+    print(i)
+    print("\n")
+    if i == None:
+      continue
+    commitJson = json.dumps(i, default=str)
+    linkUserToRepo(i, "COMMITS_TO")
 
 if __name__ == "__main__":
   print("Starting neo4j ingestor deamon")
